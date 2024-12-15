@@ -1,0 +1,23 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Student Profile</title>
+    <link rel="stylesheet" href="{% static 'css/style_from.css' %}">
+</head>
+<body>
+    <div class="form-container">
+        <h1 class="form-title">Create Student Profile</h1>
+        <form class="form" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+
+            {{ form.as_p }}
+
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+
+</body>
+</html>

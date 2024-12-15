@@ -1,0 +1,131 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Pannel</title>
+    <link rel="stylesheet" href={% static "/css/all.min.css" %}>
+    <link rel="stylesheet" href={% static "/css/style_dashboard_control.css" %}>
+</head>
+<body>
+    <div class="container">
+        <div class="topbar">    
+            <div class="logo">
+                <h2>IGEE</h2>
+            </div>
+            <i class="fas fa-bell"></i>
+            <div class="user">
+                <img src={% static "/images/user.png" %} alt="">
+            </div>
+        </div>
+        <div class="sidebar">
+            <ul>
+                <li>
+                    <a href="{% url 'technical_team_dashboard' %}">
+                        <i class="fas fa-chart-bar"></i>
+                        <div>Analytics Dashboard</div>
+                    </a>
+                </li>
+                <li>
+                    <a href="{% url 'control_settings' %}">
+                        <i class="fas fa-cog"></i>
+                        <div>Control Settings</div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fas fa-question"></i>
+                        <div>Help</div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="main">
+            <div class="cards">
+                <div class="card">
+                    <div class="card-content">
+                        <div class="number">1217</div>
+                        <div class="card-name">Students</div>
+                    </div>
+                    <div class="icon-box">
+                        <i class="fas fa-user-graduate"></i>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-content">
+                        <div class="number">42</div>
+                        <div class="card-name">Teachers</div>
+                    </div>
+                    <div class="icon-box">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-content">
+                        <div class="number">68</div>
+                        <div class="card-name">Employees</div>
+                    </div>
+                    <div class="icon-box">
+                        <i class="fas fa-users"></i>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-content">
+                        <div class="number">$4500</div>
+                        <div class="card-name">Earnings</div>
+                    </div>
+                    <div class="icon-box">
+                        <i class="fas fa-dollar-sign"></i>
+                    </div>
+                </div>
+
+            </div>
+            
+            <div class="chart" id="daughnut-chart">
+                <h2>University current Status</h2>
+                <div class="table-container">
+                               <!-- Display control settings as a table -->
+                               <table>
+                                <thead>
+                                    <tr>
+                                        <th>Setting</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for setting, status in control_settings_data.items %}
+                                        <tr>
+                                            <td>{{ setting }}</td>
+                                            <td>{{ status }}</td>
+                                        </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+            </div>
+                <div class="chart" id="daughnut-chart">
+                        
+                    <h2>Control Settings</h2>
+                    <form method="post" class="control-settings-form">
+                        {% csrf_token %}
+                        <table class="control-settings-table">
+                            {% for field in form %}
+                            <tr>
+                                <td>{{ field.label_tag }}</td>
+                                <td>{{ field }}</td>
+                            </tr>
+                            {% endfor %}
+                        </table>
+                        <button type="submit">Save Settings</button>
+                    </form>
+                        
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    
+
+</body>
+</html>

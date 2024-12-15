@@ -1,0 +1,35 @@
+{% extends 'AI/main.html' %}
+{% block content  %}
+<h1>{{room}}</h1>
+<div class="container col-md-6">{{ chart|safe }}</div>
+
+
+
+{% endblock content %}
+
+{% comment %} <div class="container">
+  <div class="col-md-6">
+  <canvas id="myChart"></canvas>
+</div>
+<script>
+const ctx = document.getElementById('myChart');
+new Chart(ctx, {
+type: 'bar',
+data: {
+  labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+  datasets: [{
+    label: '{{room}}',
+    data: [12, 19, 3, 5, 2, 3],
+    borderWidth: 1
+  }]
+},
+options: {
+  scales: {
+    y: {
+      beginAtZero: true
+    }
+  }
+}
+});
+
+  </script> {% endcomment %}

@@ -1,0 +1,126 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Pannel</title>
+    <link rel="stylesheet" href={% static "/css/all.min.css" %}> <link
+    rel="stylesheet" href={% static "/css/teacher_dashboard_style.css" %}>
+  </head>
+  <body>
+    <div class="container">
+      <div class="topbar">
+        <div class="logo">
+          <h2>IGEE</h2>
+        </div>
+
+        <i class="fas fa-bell"></i>
+        <div class="user"><img src={% static "/images/user.png" %} alt=""></div>
+      </div>
+      <div class="sidebar">
+        <ul>
+          <li>
+            <a href="#">
+              <i class="fas fa-th-large"></i>
+              <div>Dashboard</div>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <i class="fas fa-chart-bar"></i>
+              <div>Attandance Dashboard</div>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <i class="fas fa-cog"></i>
+              <div>Control Settings</div>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <i class="fas fa-question"></i>
+              <div>Help</div>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="main">
+        <div class="cards">
+          <div class="card">
+            <div class="card-content">
+              <div class="number">1217</div>
+              <div class="card-name">Students</div>
+            </div>
+            <div class="icon-box">
+              <i class="fas fa-user-graduate"></i>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-content">
+              <div class="number">42</div>
+              <div class="card-name">Teachers</div>
+            </div>
+            <div class="icon-box">
+              <i class="fas fa-chalkboard-teacher"></i>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-content">
+              <div class="number">68</div>
+              <div class="card-name">Employees</div>
+            </div>
+            <div class="icon-box">
+              <i class="fas fa-users"></i>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-content">
+              <div class="number">$4500</div>
+              <div class="card-name">Earnings</div>
+            </div>
+            <div class="icon-box">
+              <i class="fas fa-dollar-sign"></i>
+            </div>
+          </div>
+        </div>
+        <div class="charts">
+          <div class="chart">
+            <h2>Welcome {{user_info.first_name}} {{user_info.last_name}}</h2>
+          </div>
+
+          <div class="chart" id="daughnut-chart">
+            <h2>Absence Information</h2>
+            <!-- Add this inside your HTML body where you want to display the teacher's session information -->
+            <div class="session-table">
+              <h2>Session Information</h2>
+              <table>
+                <thead>
+                  <tr>
+                    <th>Group</th>
+                    <th>Studnt Name</th>
+                    <th>Module</th>
+                    <th>Class Name</th>
+                    <th>Time</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for session_data in session_info %}
+                  <tr>
+                    <td>{{ session_data.group }}</td>
+                    <td>{{ session_data.group }}</td>
+                    <td>{{ session_data.class_name }}</td>
+                    <td>{{ session_data.module }}</td>
+                    <td>{{ session_data.time }}</td>
+                  </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

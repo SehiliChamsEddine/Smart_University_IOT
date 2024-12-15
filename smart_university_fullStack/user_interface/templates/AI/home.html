@@ -1,0 +1,118 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>Admin Dashboard</title>
+
+    <!-- custom css  -->
+    <link rel="stylesheet" href={% static "/css/style.css" %}>
+    <!-- web icons -->
+    <link rel="stylesheet" href={% static "/css/all.min.css" %}>
+  </head>
+  <body>
+    <div class="grid-container">
+
+      <!-- Header -->
+      <header class="header">
+        <div class="menu-icon" onclick="openSidebar()">
+            <i class="fa-solid fa-bars fa-lg  outlined"></i>
+        </div>
+        <div class="header-left">
+            <i class="fa-solid fa-magnifying-glass search" ></i>
+        </div>
+        <div class="header-right">
+            <i class="fa-solid fa-bell notification "></i>
+            <i class="fa-solid fa-envelope email"></i>
+            <i class="fa-solid fa-user user "></i>
+        </div>
+      </header>
+      <!-- End Header -->
+
+      <!-- Sidebar -->
+      <aside id="sidebar">
+        <div class="sidebar-title">
+          <div class="sidebar-brand">
+            <i class="fa-brands fa-html5"></i>
+          </div>
+          <i class="fa-solid fa-xmark close" onclick="closeSidebar()"></i>
+        </div>
+
+        <ul class="sidebar-list">
+          <li class="sidebar-list-item">
+            <a href="#" target="_blank">
+                <i class="fa-solid fa-chart-line"></i><span> Dashboard</span>
+            </a>
+          </li>
+        </ul>
+      </aside>
+      <!-- End Sidebar -->
+
+      <!-- Main -->
+      <main class="main-container">
+        <div class="main-title">
+          <h2>DASHBOARD</h2>
+        </div>
+
+        <div class="main-cards">
+            <div class="card">
+                <div class="card-inner">
+                    <h3>STUDENTS</h3>
+                    <i class="fa-solid fa-graduation-cap"></i>
+                </div>
+                <h1>10,000</h1>
+            </div>
+            <div class="card">
+                <div class="card-inner">
+                    <h3>TEACHERS</h3>
+                    <i class="fa-solid fa-person-chalkboard"></i>
+                </div>
+                <h1>100</h1>
+            </div>
+            <div class="card">
+                <div class="card-inner">
+                    <h3>USERS</h3>
+                    <i class="fa-solid fa-users"></i>
+                </div>
+                <h1>1200</h1>
+            </div>
+        </div>
+        <div class="charts">
+
+            <div class="charts-card">
+              <h2 class="chart-title">Voltage Records</h2>
+              <div id="bar-chart"></div>
+            </div>
+    
+            <div class="charts-card">
+              <h2 class="chart-title">Humidity Records</h2>
+              <div id="line-chart"></div>
+            </div>
+    
+          </div>
+          <div class="charts">
+    
+            <div class="charts-card">
+              <h2 class="chart-title">Voltage Records</h2>
+              <div id="bar-charts"></div>
+            </div>
+    
+            <div class="charts-card">
+              <h2 class="chart-title">Humidity Records</h2>
+              <div id="line-charts"></div>
+            </div>
+    
+          </div>
+      </main>
+      <!-- End Main -->
+
+    </div>
+
+    <!-- Scripts -->
+    <!-- ApexCharts -->
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <script src={% static "/js/plotly-latest.min.js" %} ></script>
+    <script src={% static "/js/scripts.js" %} ></script>
+  </body>
+</html>

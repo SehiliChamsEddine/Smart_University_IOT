@@ -1,0 +1,17 @@
+{% extends "AI/main.html" %}
+
+{% block content  %}
+
+
+<div id="video-container">
+    <img id="video-frame" src="{% url 'stream' %}" alt="Streaming">
+    <div id="video-overlay"></div>
+    <div id="video-title">Streaming</div>
+</div>
+
+<footer>
+    <!-- Add footer content, links, or additional information here -->
+</footer>
+
+{% endblock content %}
+

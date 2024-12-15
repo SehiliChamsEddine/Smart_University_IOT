@@ -1,0 +1,229 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Pannel</title>
+    <link rel="stylesheet" href={% static "/css/all.min.css" %}>
+    <link rel="stylesheet" href={% static "/css/admin_dashboard_style.css" %}>
+</head>
+<body>
+    <div class="container">
+        <div class="topbar">
+            <div class="logo">
+                <h2>IGEE</h2>
+            </div>
+            <i class="fas fa-bell"></i>
+            <div class="user">
+                <img src={% static "/images/user.png" %} alt="">
+            </div>
+        </div>
+        <div class="sidebar">
+            <ul>
+                <li>
+                <a href="{% url 'admin_dashboard' %}">
+                    <i class="fas fa-cog"></i>
+                    <div>Dashboard</div>
+                </a>
+             </li>
+            </li>
+                <li>
+                    <a href="/admin_attandance_dashboard">
+                        <i class="fas fa-user-graduate"></i>
+                        <div>Students and Teachers</div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fas fa-cog"></i>
+                        <div>Settings</div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fas fa-question"></i>
+                        <div>Help</div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="main">
+            <div class="cards">
+                <div class="card">
+                    <div class="card-content">
+                        <div class="number">1217</div>
+                        <div class="card-name">Students</div>
+                    </div>
+                    <div class="icon-box">
+                        <i class="fas fa-user-graduate"></i>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-content">
+                        <div class="number">42</div>
+                        <div class="card-name">Teachers</div>
+                    </div>
+                    <div class="icon-box">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-content">
+                        <div class="number">68</div>
+                        <div class="card-name">Employees</div>
+                    </div>
+                    <div class="icon-box">
+                        <i class="fas fa-users"></i>
+                    </div>
+                </div>
+
+            </div>
+            <div class="charts">
+                <div class="chart ">
+                    <h2>Create Users</h2>
+                    {% comment %} <div class="admin-info ">
+                        <h2>{{ admin_info.first_name }} {{ admin_info.last_name }} </h2>
+                    </div> {% endcomment %}
+                    <div class="set-session-form">
+                        <form method="post" action="">
+                            {% csrf_token %}
+                            <div class="grid-3">
+                            <div>
+                            <div class="section-heading"><p>General </p> </div>
+                            <table>
+                                {{ form1.as_table }}
+                                <tr>
+                                    <th>Id number</th>
+                                    <td>
+                                        <input type="text"  name="id_number" >
+                                        
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>contact phone</th>
+                                    <td>
+                                        <input type="text"  name="contact_phone"  >
+                                    </td>
+                                </tr>
+                            </table></div>
+                            <div>
+                            <div class="section-heading"><p>For Students </p> </div>
+                        <table>
+                            
+                              
+
+                                <tr>
+                                    <th>Group number</th>
+                                    <td>
+                                        <input type="text"  name="group_name"  >
+                                        <span class="helptext"> only this syntax G1,2,3,4,... <br> is valid  </span>
+                                    </td>
+                                   
+                                </tr>
+                            </table></div>
+                            <div>
+                            
+                            <div class="section-heading"><p>For Teatchers </p> </div>
+                        
+                        <table> 
+                            <tr>
+                                <th>Module</th>
+                                <td>
+                                    <input type="text"  name="Module"  >
+                                </td>
+                            </tr>
+                        </table>
+                        
+                        
+                        </div>
+                        <div>
+                            
+                            <div class="section-heading"><p>For Technical Team or Administration
+                                 </p> </div>
+                        
+                        <table> 
+                            <tr>
+                                <th>position</th>
+                                <td>
+                                    <input type="text"  name="position"  >
+                                </td>
+                            </tr>
+                            
+                        </table><div><div class="section-heading" style=" margin-top:20px"><p>For  Administration only
+                            </p> </div>
+                        
+                            <select name="is_supervisor" id="id_role">
+                                <option value="NO">No</option>
+                              
+                                <option value="YES">Yes</option>
+                              
+                                
+                              
+                              </select>
+                        </div>
+                        </div>
+                    </div>
+                            <button type="submit">Create</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="chart" id="daughnut-chart">
+                    <h2>Set Session</h2>
+                    <div class="set-session-form">
+                        <form method="post" action="">
+                            {% csrf_token %}
+                            <label>
+                                <div>
+                            <table>
+                                {{ form.as_table }}
+                            </table>
+                            <div>
+                            <button type="submit">Set Session</button>
+                        </form>
+                    </div>
+                </div>
+        </div>
+    </div>
+
+    <script>
+        // Get all input elements
+        const inputs = document.querySelectorAll('input');
+    
+        // Add event listeners to each input element
+        inputs.forEach(input => {
+            input.addEventListener('focus', function() {
+                // Hide all helpartext elements
+                document.querySelectorAll('.helptext').forEach(helpText => {
+                    helpText.style.display = 'none';
+                });
+    
+                // Find the adjacent helpartext element
+                let adjacentHelpText = input.nextElementSibling;
+                while (adjacentHelpText && !adjacentHelpText.classList.contains('helptext')) {
+                    adjacentHelpText = adjacentHelpText.nextElementSibling;
+                }
+    
+                // Display the adjacent helpartext element
+                if (adjacentHelpText) {
+                    adjacentHelpText.style.display = 'block';
+                }
+            });
+    
+            input.addEventListener('blur', function() {
+                // Hide the adjacent helpartext element when the input is blurred
+                let adjacentHelpText = input.nextElementSibling;
+                while (adjacentHelpText && !adjacentHelpText.classList.contains('helptext')) {
+                    adjacentHelpText = adjacentHelpText.nextElementSibling;
+                }
+    
+                if (adjacentHelpText) {
+                    adjacentHelpText.style.display = 'none';
+                }
+            });
+        });
+    
+        
+    </script>
+</body>
+</html>

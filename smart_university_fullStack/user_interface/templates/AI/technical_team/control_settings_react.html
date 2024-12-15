@@ -1,0 +1,54 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Pannel</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href={% static "/css/all.min.css" %}>
+    <link rel="stylesheet" href={% static "/css/style_dashboard_control.css" %}>
+    <link rel="stylesheet" href={% static "/css/App.css" %}>
+    
+</head>
+<body>
+    <div class="container">
+        <div class="topbar">    
+            <div class="logo">
+                <h2>IGEE</h2>
+            </div>
+            <i class="fas fa-bell"></i>
+            <div class="user">
+                <img src={% static "/images/user.png" %} alt="">
+            </div>
+        </div>
+        <div class="sidebar">
+            <ul>
+                <li>
+                    <a href="{% url 'technical_team_dashboard' %}">
+                        <i class="fas fa-chart-bar"></i>
+                        <div>Analytics Dashboard</div>
+                    </a>
+                </li>
+                <li>
+                    <a href="{% url 'control_settings_react' %}">
+                        <i class="fas fa-cog"></i>
+                        <div>Control Settings</div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fas fa-question"></i>
+                        <div>Help</div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="main">
+            <div id="app"></div>
+        
+    </div>
+    
+<script src={% static "/react_integration/exports/main.js" %}></script>
+</body>
+</html>

@@ -1,0 +1,72 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Pannel</title>
+    <link rel="stylesheet" href={% static "/css/all.min.css" %}>
+    <link rel="stylesheet" href={% static "/css/style_daashboard.css" %}>
+</head>
+<body>
+    <div class="container">
+        <div class="topbar">    
+            <div class="logo">
+                <h2>IGEE</h2>
+            </div>
+            <i class="fas fa-bell"></i>
+            <div class="user">
+                <img src={% static "/images/user.png" %} alt="">
+            </div>
+        </div>
+        <div class="sidebar">
+            <ul>
+                <li>
+                    <a href="{% url 'technical_team_dashboard' %}">
+                        <i class="fas fa-chart-bar"></i>
+                        <div>Analytics Dashboard</div>
+                    </a>
+                </li>
+                <li>
+                    <a href="{% url 'control_settings_react' %}">
+                        <i class="fas fa-cog"></i>
+                        <div>Control Settings</div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fas fa-question"></i>
+                        <div>Help</div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="main">
+           
+            <div class="charts">
+                <div class="chart">
+                    <h2>Real Time Humidity (%)</h2>
+                    <div id="line-chart1"></div>
+                </div>
+
+                <div class="chart" id="daughnut-chart">
+                    <h2>Real Time Temperature (°C)</h2>
+                    <div id="line-chart"></div>
+                </div>
+            </div>
+            <div class="charts">
+                <div class="chart">
+                    <h2>Real Time Water level (%)</h2>
+                    <div id="line-chart2"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+<script src={% static "/js/chart1.js" %}></script>
+<script src={% static "/js/plotly-latest.min.js" %} ></script>
+
+</body>
+</html>
