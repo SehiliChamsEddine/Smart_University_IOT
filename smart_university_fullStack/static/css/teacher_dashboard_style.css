@@ -1,0 +1,291 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+.topbar {
+  position: fixed;
+  background: #fff;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.08);
+  width: 100%;
+  padding: 0 20px;
+  display: grid;
+  grid-template-columns: 2fr 10fr 0.4fr 1fr;
+  align-items: center;
+  z-index: 1;
+}
+
+.logo h2 {
+  color: #299b63;
+}
+
+.search {
+  position: relative;
+  width: 60%;
+  justify-self: center;
+}
+
+.search input {
+  width: 100%;
+  height: 40px;
+  padding: 0 40px;
+  font-size: 16px;
+  outline: none;
+  border: none;
+  background: #f5f5f5;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+}
+
+.search i {
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  cursor: pointer;
+}
+
+.user {
+  position: relative;
+  width: 30px;
+  height: 30px;
+}
+
+.user img {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+/* sidebar */
+.sidebar {
+  position: fixed;
+  top: 60px;
+  width: 260px;
+  height: calc(100% - 60px);
+  background: #299b63;
+  overflow-x: hidden;
+}
+
+.sidebar ul {
+  margin-top: 20px;
+}
+
+.sidebar ul li {
+  width: 100%;
+  list-style: none;
+}
+
+.sidebar ul li:hover {
+  background: #fff;
+}
+.sidebar ul li:hover a {
+  color: #299b63;
+}
+
+.sidebar ul li a {
+  width: 100%;
+  text-decoration: none;
+  color: #fff;
+  height: 60px;
+  display: flex;
+  align-items: center;
+}
+.sidebar ul li a i {
+  min-width: 60px;
+  font-size: 24px;
+  text-align: center;
+}
+
+/* main section */
+
+.main {
+  position: absolute;
+  top: 60px;
+  width: calc(100% - 260px);
+  left: 260px;
+  min-height: calc(100vh - 60px);
+  background: #f5f5f5;
+}
+
+.cards {
+  width: 100%;
+  padding: 35px 20px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 20px;
+}
+
+.cards .card {
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #fff;
+  box-shadow: 0 7px 25px 0 rgba(0, 0, 0, 0.08);
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+}
+
+.cards .card:hover {
+  background: #299b63;
+}
+.cards .card:hover .number {
+  color: #fff;
+}
+.cards .card:hover .card-name {
+  color: #fff;
+}
+
+.cards .card:hover .icon-box i {
+  color: #fff;
+}
+.number {
+  font-size: 35px;
+  font-weight: 500;
+  color: #299b63;
+}
+.card-name {
+  color: #888;
+  font-weight: 600;
+}
+
+.icon-box i {
+  font-size: 45px;
+  color: #299b63;
+}
+
+.charts {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 20px;
+  width: 100%;
+  padding: 20px;
+  padding-top: 0;
+}
+
+.chart {
+  background: #fff;
+  padding: 20px;
+  box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+  width: 100%;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+}
+
+.chart h2 {
+  margin-bottom: 5px;
+  font-size: 20px;
+  color: #666;
+  text-align: center;
+}
+
+/* Responsive starts here  */
+/* Add this style for the teacher's session table */
+.session-table {
+  width: 100%;
+  margin-top: 20px;
+}
+
+.session-table h2 {
+  color: #299b63;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.session-table table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.session-table th,
+.session-table td {
+  padding: 12px;
+  border: 1px solid #ddd;
+  text-align: left;
+}
+
+.session-table th {
+  background-color: #299b63;
+  color: #fff;
+}
+
+.session-table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.session-table tr:hover {
+  background-color: #ddd;
+}
+
+@media (max-width: 1115px) {
+  .sidebar {
+    width: 60px;
+  }
+  .main {
+    left: 60px;
+    width: calc(100% - 60px);
+  }
+}
+@media (max-width: 880px) {
+  .cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .charts {
+    grid-template-columns: 1fr;
+  }
+  #daughnut-chart,
+  #daughnut-chart1 {
+    padding: 50px;
+  }
+
+  #myChart1 {
+    padding: 50px;
+  }
+}
+
+@media (max-width: 500px) {
+  .topbar {
+    grid-template-columns: 1fr 5fr 0.4fr 1fr;
+  }
+  .cards {
+    grid-template-columns: 1fr;
+  }
+
+  .logo h2 {
+    font-size: 20px;
+  }
+  .search {
+    width: 80%;
+  }
+  .search input {
+    padding: 0 20px;
+  }
+  .fa-bell {
+    margin-right: 5px;
+  }
+
+  .user {
+    width: 25px;
+    height: 25px;
+  }
+  #daughnut-chart {
+    padding: 10px;
+  }
+
+  #myChart1 {
+    padding: 0;
+  }
+}

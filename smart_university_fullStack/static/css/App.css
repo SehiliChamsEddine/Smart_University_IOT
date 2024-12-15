@@ -1,0 +1,77 @@
+/* Control Settings styles */
+.container h1 {
+  margin-bottom: 20px;
+  font-size: 24px;
+  text-align: center;
+  padding: 10px 15px;
+}
+
+/* Sending Data styles */
+.sending-data {
+  margin-top: 40px;
+  border-top: 1px solid #e0e0e0;
+  padding-top: 20px;
+}
+
+h2 {
+  font-size: 20px;
+  margin-bottom: 15px;
+}
+
+button {
+  padding: 10px 15px;
+  margin: 5px;
+  border: none;
+  cursor: pointer;
+
+  transition: background-color 0.3s ease, color 0.3s ease;
+  border-radius: 5px;
+}
+
+button.on {
+  background-color: #299b63;
+  color: white;
+}
+
+p.off {
+  background-color: #d9534f;
+  color: white;
+}
+p.on {
+  background-color: #299b63;
+  color: white;
+}
+
+button.off {
+  background-color: #d9534f;
+  color: white;
+}
+/* Receiving Data styles */
+.receiving-data p {
+  padding: 10px 15px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  font-size: 18px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+}
+
+.control-settings button {
+  display: block;
+}
+
+.control-settings {
+  padding: 80px;
+  display: flex;
+  gap: 50px;
+  justify-content: center;
+}
+.Send {
+  display: flex;
+  justify-content: center;
+}
+.Send-container {
+  display: inline-block;
+}
