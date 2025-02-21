@@ -5,7 +5,7 @@ import numpy as np
 import os
 import cv2 
 import paho.mqtt.client as mqtt
-from facenet_pytorch import InceptionResnetV1
+
 from ultralytics import YOLO
 names = np.array([], dtype=object)
 faces=[]
